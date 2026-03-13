@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="dot"></span>
+        <h1>Task Tracker</h1>
+      </div>
+      <div class="meta">
+        <span id="task-count">0 tasks</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="card">
+        <form id="new-task-form" autocomplete="off">
+          <label class="sr-only" for="new-task-input">Add a task</label>
+          <input
+            type="text"
+            id="new-task-input"
+            name="task"
+            placeholder="What do you have planned?"
+            required
+          />
+          <button type="submit" id="new-task-submit">Add task</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <h2>Tasks</h2>
+          <div class="toolbar">
+            <div class="filters" role="group" aria-label="Filter tasks">
+              <button type="button" data-filter="all" class="pill active">All</button>
+              <button type="button" data-filter="active" class="pill">Active</button>
+              <button type="button" data-filter="completed" class="pill">Completed</button>
+            </div>
+            <div class="search">
+              <label class="sr-only" for="task-search">Search tasks</label>
+              <input id="task-search" type="search" placeholder="Search" autocomplete="off" />
+            </div>
+            <button id="clear-completed" type="button" class="ghost">Clear completed</button>
+          </div>
+        </div>
+        <ul id="tasks" aria-live="polite"></ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
